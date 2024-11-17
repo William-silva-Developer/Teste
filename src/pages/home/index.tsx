@@ -4,6 +4,8 @@ import { db } from "../../services/firebase-connction"
 import { collection, getDocs, orderBy, query, where } from "firebase/firestore"
 import { Link } from "react-router-dom"
 import { ICarsProps } from "../../interfaces/Car"
+import { Footer } from "../../components/footer"
+import { Banner } from "../../components/banner"
 
 const Home: React.FC = () => {
     const [cars, setCars] = useState<ICarsProps[]>([])
@@ -78,6 +80,7 @@ const Home: React.FC = () => {
 
     return (
         <Container>
+        
             <section className="w-full max-w-3xl mx-auto bg-white items-center justify-center p-4 rounded-lg flex gap-2">
                 <input
                     placeholder="Digite o nome do carro..."
@@ -95,6 +98,7 @@ const Home: React.FC = () => {
             <h1 className="font-bold text-center mt-6 text-2xl mb-4">
                 Carros novos e usados em todo brasil
             </h1>
+            <div>
             <main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-2">
                 {cars.map((car) => (
                     <Link key={car.id} to={`/car/${car.id}`}>
@@ -137,6 +141,9 @@ const Home: React.FC = () => {
                     </Link>
                 ))}
             </main>
+                <Banner />
+                <Footer />
+            </div>
         </Container>
     )
 }
