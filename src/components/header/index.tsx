@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import logo from "../../../public/logo.svg"
+import logo from "/logo.svg"
 
 import { FiUser, FiLogIn } from "react-icons/fi"
 import { useSelector } from "react-redux"
